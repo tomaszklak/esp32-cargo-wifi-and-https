@@ -1,0 +1,3 @@
+cargo based esp32 example with wifi and https
+
+set SSID and PASS environment variables to configure wifi

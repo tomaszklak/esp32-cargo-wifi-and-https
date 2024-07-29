@@ -1,0 +1,40 @@
+[package]
+name = "rust-esp32-std-demo"
+version = "0.30.1"
+authors = ["ivmarkov"]
+edition = "2021"
+categories = ["embedded", "hardware-support"]
+keywords = ["embedded", "svc", "idf", "esp-idf", "esp32"]
+description = "A demo binary crate for the ESP32 and ESP-IDF, which connects to WiFi, Ethernet, drives a small HTTP server and draws on a LED screen"
+repository = "https://github.com/ivmarkov/rust-esp32-std-demo"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+debug = true
+opt-level = "z"
+
+[features]
+default = []
+
+qemu = []
+
+[dependencies]
+anyhow = {version = "1"}
+log = "0.4"
+url = "2"
+esp-idf-svc = "0.48"
+esp-idf-sys = "0.34"
+async-io = "2"
+async-executor = "1"
+futures-lite = "1"
+
+
+[build-dependencies]
+embuild = { version = "0.31.3", features = ["elf"] }
